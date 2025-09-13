@@ -1,3 +1,15 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="relative z-[5] w-full max-h-[100rem] h-[90vh] min-h-[60rem] pt-20 pb-20 px-2 grid grid-cols-[1fr_minmax(min-content,_45%)] items-start">
+  <div class="text-2xl gap-2 flex flex-col justify-center items-start">
+    <p class="text-gray-400">Hello! I am</p>
+    <p>Paul Chesterton</p>
+    <p class="text-teal-400">Full-Stack Ruby on Rails Developer</p>
+    <p>I'm a passionate developer who has been crafting web applications since 2017.
+      I specialize in Ruby on Rails and have a knack for building scalable, efficient,
+      and user-friendly applications. I'm known for delivering high-quality code and
+      collaborating effectively with cross-functional teams to bring ideas to life.
+    </p>
+  </div>
+  <div>
+    <%= image_tag "paul.jpeg", alt: "Paul Chesterton", class: "rounded-lg shadow-lg" %>
+  </div>
+</div>
