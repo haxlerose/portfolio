@@ -22,26 +22,26 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="relative h-full w-full overflow-x-hidden overflow-y-scroll bg-black text-white">
-    <main class="relative w-full max-w-[1920px] px-32 mx-auto overflow-hidden">
-      <nav class="relative z-10 h-32 w-full flex justify-between items-center">
+  <body class="relative h-full w-full overflow-x-hidden overflow-y-scroll bg-gray-900 text-white">
+    <main class="relative w-full max-w-[1920px] px-25 mx-auto overflow-hidden">
+      <nav class="relative z-10 h-20 w-full flex justify-between items-center">
         <div class="text-2xl font-light">
           Paul Chesterton
         </div>
         <div class="block w-3/5 max-w-[80rem]">
           <ul class="w-full flex justify-between items-center text-lg font-light">
-            <li><%= link_to 'About', '#', class: 'hover:text-gray-400' %></li>
-            <li><%= link_to 'Skills', '#', class: 'hover:text-gray-400' %></li>
-            <li><%= link_to 'Projects', '#', class: 'hover:text-gray-400' %></li>
-            <li><%= link_to 'Contact', '#', class: 'hover:text-gray-400' %></li>
+            <li><%= link_to 'About', '#about-me', class: 'hover:text-gray-400' %></li>
+            <li><%= link_to 'Skills', '#skills', class: 'hover:text-gray-400' %></li>
+            <li><%= link_to 'Projects', '#projects', class: 'hover:text-gray-400' %></li>
+            <li><%= link_to 'Contact', '#contact', class: 'hover:text-gray-400' %></li>
           </ul>
         </div>
       </nav>
-      <div class="fixed z-[100] left-0 bottom-0 flex flex-col items-center w-32">
-        <%= link_to 'email', '#', class: 'w-14 h-14' %>
-        <%= link_to 'linkedin', '#', class: 'w-14 h-14' %>
-        <%= link_to 'github', '#', class: 'w-14 h-14' %>
-        <div class="w-1 rounded-2xl h-60 bg-gray-500 opacity-100 h-60"></div>
+      <div class="fixed z-[100] left-0 bottom-0 flex flex-col items-center w-20">
+        <%= link_to 'email', 'mailto:chestertonpa@gmail.com', class: 'w-14 h-14', target: '_blank' %>
+        <%= link_to 'linkedin', 'https://www.linkedin.com/in/paul-chesterton-3a89b1a9/', class: 'w-14 h-14', target: '_blank' %>
+        <%= link_to 'github', 'http://github.com/haxlerose', class: 'w-14 h-14', target: '_blank' %>
+        <div class="w-1 rounded-2xl h-40 bg-white opacity-100"></div>
       </div>
 
       <%= yield %>
