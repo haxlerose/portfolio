@@ -1,43 +1,43 @@
-<div class="relative z-[5] w-full max-h-[100rem] h-[60vh] min-h-[35rem] pt-20 px-2 grid grid-cols-[1fr_minmax(min-content,_45%)] items-start">
-  <div class="text-2xl gap-2 flex flex-col justify-center items-start font-extralight">
-    <p class="text-gray-400">Hello! I am</p>
-    <p>Paul Chesterton</p>
-    <p class="text-teal-400">Full-Stack Ruby on Rails Developer</p>
-    <p>I'm a passionate developer who has been crafting web applications since 2017.
+<div class="relative z-[5] w-full max-h-[100rem] h-[60vh] min-h-[35rem] pt-20 mb-20 lg:mb-0 px-2 lg:grid lg:grid-cols-[1fr_minmax(min-content,_45%)] items-start" data-controller="stagger" data-stagger-interval-value="400">
+  <div class="text-2xl gap-2 flex flex-col justify-center items-start font-extralight mb-10 lg:mb-0">
+    <p data-stagger-target="item" class="text-gray-400 opacity-0 translate-y-2">Hello! I am</p>
+    <p data-stagger-target="item" class="opacity-0 translate-y-2">Paul Chesterton</p>
+    <p data-stagger-target="item" class="text-teal-400 opacity-0 translate-y-2">Full-Stack Ruby on Rails Developer</p>
+    <p data-stagger-target="item" class="opacity-0 translate-y-2">I'm a passionate developer who has been crafting web applications since 2017.
       I specialize in Ruby on Rails and have a knack for building scalable, efficient,
       and user-friendly applications. I'm known for delivering high-quality code and
       collaborating effectively with cross-functional teams to bring ideas to life.
     </p>
   </div>
-  <div class="flex justify-center items-center">
-    <%= image_tag "paul.jpeg", alt: "Paul Chesterton", class: "w-3/5 rounded-lg shadow-lg shadow-teal-400 border-4 border-teal-400" %>
+  <div class="flex justify-center items-center opacity-0 translate-y-2" data-stagger-target="item">
+    <%= image_tag "paul.jpeg", alt: "Paul Chesterton", class: "w-3/5 rounded-lg shadow-2xl shadow-teal-400 border-4 border-teal-400" %>
   </div>
 </div>
 
 <div class="flex flex-col justify-center items-center w-full mb-20">
   <a href="#about-me">
-    <svg class="w-[3em] h-[3em] text-teal-400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em" viewBox="0 0 24 24">
+    <svg class="w-[3em] h-[3em] text-teal-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <g fill="none" stroke="currentColor" stroke-linejoin="round">
         <path d="M6 9a6 6 0 0 1 12 0v6a6 6 0 0 1-12 0z"></path>
         <path stroke-linecap="round" d="M12 7v4"></path>
       </g>
     </svg>
-    <div style="transform: translateY(-0.325723px) translateZ(0px);">
-      <svg class="w-[3em] h-[3em] text-teal-400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em" viewBox="0 0 256 256">
-        <path fill="currentColor" d="M210.83 133.17a4 4 0 0 1 0 5.66l-80 80a4 4 0 0 1-5.66 0l-80-80a4 4 0 0 1 5.66-5.66L128 210.34l77.17-77.17a4 4 0 0 1 5.66 0m-85.66 5.66a4 4 0 0 0 5.66 0l80-80a4 4 0 1 0-5.66-5.66L128 130.34L50.83 53.17a4 4 0 0 0-5.66 5.66Z"></path>
-      </svg>
-    </div>
+
+    <svg class="w-[3em] h-[3em] text-teal-400 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+      <path fill="currentColor" d="M210.83 133.17a4 4 0 0 1 0 5.66l-80 80a4 4 0 0 1-5.66 0l-80-80a4 4 0 0 1 5.66-5.66L128 210.34l77.17-77.17a4 4 0 0 1 5.66 0m-85.66 5.66a4 4 0 0 0 5.66 0l80-80a4 4 0 1 0-5.66-5.66L128 130.34L50.83 53.17a4 4 0 0 0-5.66 5.66Z"></path>
+    </svg>
   </a>
 </div>
+
 
 <div id="about-me" class="relative z-[5] w-full h-20 flex justify-center items-center text-7xl font-extralight px-2">
   About Me
 </div>
 
-<div class="relative z-[5] w-full pt-20 pb-40 px-2 grid grid-cols-[1fr_minmax(min-content,_45%)] items-start gap-8 font-extralight">
-  <div class="text-2xl gap-2 flex flex-col justify-center items-center px-10 text-center">
-    <div class="text-4xl text-teal-400 font-light mb-10">Professional</div>
-    <p>
+<div class="relative z-[5] w-full pt-20 pb-20 lg:pb-40 px-2 lg:grid lg:grid-cols-[1fr_minmax(min-content,_45%)] items-start gap-8 font-extralight" data-controller="stagger" data-stagger-interval-value="500">
+  <div class="text-2xl gap-2 flex flex-col justify-center items-center px-10 text-center mb-10 lg:mb-0">
+    <div data-stagger-target="item" class="text-4xl text-teal-400 font-light mb-5 lg:mb-10 opacity-0 translate-y-2">Professional</div>
+    <p data-stagger-target="item" class="opacity-0 translate-y-2">
       I have a strong foundation in both front-end and back-end development, with
       expertise in Ruby on Rails, JavaScript, HTML, CSS, and various databases.
       I am proficient in building RESTful APIs, integrating third-party services,
@@ -46,8 +46,8 @@
     </p>
   </div>
   <div class="text-2xl gap-2 flex flex-col justify-center items-center px-10 text-center">
-    <div class="text-4xl text-teal-400 font-light mb-10">Personal</div>
-    <p>
+    <div data-stagger-target="item" class="text-4xl text-teal-400 font-light mb-5 lg:mb-10 opacity-0 translate-y-2">Personal</div>
+    <p data-stagger-target="item" class="opacity-0 translate-y-2">
       Outside of work, I am an avid learner and enjoy exploring new technologies
       and programming languages. I am passionate about my family and enjoy spending
       quality time with them. In my free time, I like to play music and am a
@@ -60,41 +60,41 @@
   Skills
 </div>
 
-<div class="relative z-[5] w-full pt-20 pb-40 px-2 items-start font-extralight">
+<div class="relative z-[5] w-full pt-10 lg:pt-20 pb-20 lg:pb-40 px-2 items-start font-extralight">
   <div class="text-4xl font-light mb-10">Front End</div>
-  <div class="flex flex-wrap gap-4 mb-20">
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">HTML</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">CSS</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">JavaScript</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Tailwind CSS</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Bootstrap</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Stimulus.js</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Hotwire</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">React</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Vue.js</div>
+  <div class="flex flex-wrap gap-4 mb-20" data-controller="stagger" data-stagger-interval-value="200">
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">HTML</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">CSS</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">JavaScript</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Tailwind CSS</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Bootstrap</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Stimulus.js</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Hotwire</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">React</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Vue.js</div>
   </div>
   <div class="text-4xl font-light mb-10">Back End</div>
-  <div class="flex flex-wrap gap-4 mb-20">
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Ruby</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Ruby on Rails</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">PostgreSQL</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">MySQL</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Redis</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">RESTful APIs</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Sidekiq</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">RSpec</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">MiniTest</div>
+  <div class="flex flex-wrap gap-4 mb-20" data-controller="stagger" data-stagger-interval-value="200">
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Ruby</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Ruby on Rails</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">PostgreSQL</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">MySQL</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Redis</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">RESTful APIs</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Sidekiq</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">RSpec</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">MiniTest</div>
   </div>
   <div class="text-4xl font-light mb-10">Miscellaneous</div>
-  <div class="flex flex-wrap gap-4">
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Git</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">AWS</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">CI/CD</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Docker</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Dokku</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Jira</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">Slack</div>
-    <div class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl">GitHub</div>
+  <div class="flex flex-wrap gap-4" data-controller="stagger" data-stagger-interval-value="200">
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Git</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">AWS</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">CI/CD</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Docker</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Dokku</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Jira</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Slack</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">GitHub</div>
   </div>
 </div>
 
@@ -102,14 +102,14 @@
   Projects
 </div>
 
-<div class="relative z-[5] w-full pb-40 px-2 items-start font-extralight">
-  <div class="grid grid-cols-2 gap-4 mb-40">
-    <%= link_to 'https://PeopleNeed.Love', class: 'flex justify-center items-start', target: '_blank' do %>
+<div class="relative z-[5] w-full pb-20 lg:pb-40 px-2 items-start font-extralight">
+  <div class="lg:grid lg:grid-cols-2 gap-4 mb-20 lg:mb-40">
+    <%= link_to 'https://PeopleNeed.Love', class: 'flex justify-center items-start mb-10 lg:mb-0', target: '_blank' do %>
       <%= image_tag "people_need_love.jpeg", alt: "Paul Chesterton", class: "w-4/5 rounded-lg shadow-lg border-4 border-teal-400 hover:border-teal-600" %>
     <% end %>
     <div class="flex justify-center">
       <div class="text-2xl gap-2 flex flex-col justify-start items-start font-extralight">
-        <%= link_to 'People Need Love', 'https://PeopleNeed.Love', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-10' %>
+        <%= link_to 'People Need Love', 'https://PeopleNeed.Love', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-5 lg:mb-10' %>
         <p>
           Web app to anonymously send and receive encouragement from others. Built with
           Ruby on Rails full-stack using Hotwire (Turbo + Stimulus.js).
@@ -120,13 +120,13 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-2 gap-4 mb-20">
-    <%= link_to 'https://animath.myserver.pchesterton.com/', class: 'flex justify-center items-start', target: '_blank' do %>
+  <div class="lg:grid lg:grid-cols-2 gap-4">
+    <%= link_to 'https://animath.myserver.pchesterton.com/', class: 'flex justify-center items-start mb-10 lg:mb-0', target: '_blank' do %>
       <%= image_tag "animath.jpeg", alt: "Animath", class: "w-4/5 rounded-lg shadow-lg border-4 border-teal-400 hover:border-teal-600" %>
     <% end %>
     <div class="flex justify-center">
       <div class="text-2xl gap-2 flex flex-col justify-start items-start font-extralight">
-        <%= link_to 'AniMath', 'https://animath.myserver.pchesterton.com/', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-10' %>
+        <%= link_to 'AniMath', 'https://animath.myserver.pchesterton.com/', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-5 lg:mb-10' %>
         <p>
           Web app for kids to solve simple math problems and collect animal cards.
           Built with Ruby on Rails full-stack using Hotwire (Turbo + Stimulus.js).
@@ -142,8 +142,17 @@
   Contact
 </div>
 
-<div class="grid grid-cols-3 gap-8 pb-20">
-  <%= link_to 'Email', 'mailto:chestertonpa@gmail.com', class: 'text-teal-400 text-4xl text-center hover:text-teal-600' %>
-  <%= link_to 'LinkedIn', 'https://www.linkedin.com/in/paul-chesterton-3a89b1a9/', class: 'text-teal-400 text-4xl text-center hover:text-teal-600', target: '_blank' %>
-  <%= link_to 'GitHub', 'https://github.com/haxlerose', class: 'text-teal-400 text-4xl text-center hover:text-teal-600', target: '_blank' %>
+<div class="grid grid-cols-3 gap-1 lg:gap-8 pb-20 text-2xl md:text-3xl lg:text-4xl text-teal-400">
+  <%= link_to 'Email', 'mailto:chestertonpa@gmail.com', class: 'text-center hover:text-teal-600' %>
+  <%= link_to 'LinkedIn', 'https://www.linkedin.com/in/paul-chesterton-3a89b1a9/', class: 'text-center hover:text-teal-600', target: '_blank' %>
+  <%= link_to 'GitHub', 'https://github.com/haxlerose', class: 'text-center hover:text-teal-600', target: '_blank' %>
+</div>
+
+<div class="flex flex-col justify-center items-center w-full mb-20">
+  <a href="#">
+    <svg class="w-[3em] h-[3em] text-teal-400 animate-bounce rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+      <path fill="currentColor" d="M210.83 133.17a4 4 0 0 1 0 5.66l-80 80a4 4 0 0 1-5.66 0l-80-80a4 4 0 0 1 5.66-5.66L128 210.34l77.17-77.17a4 4 0 0 1 5.66 0m-85.66 5.66a4 4 0 0 0 5.66 0l80-80a4 4 0 1 0-5.66-5.66L128 130.34L50.83 53.17a4 4 0 0 0-5.66 5.66Z"></path>
+    </svg>
+  </a>
+
 </div>
