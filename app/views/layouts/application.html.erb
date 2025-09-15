@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth">
+<html>
   <head>
     <title><%= content_for(:title) || "Portfolio" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -31,16 +31,19 @@
         <div class="hidden lg:block w-3/5 max-w-[80rem]">
           <%= render "shared/nav_links" %>
         </div>
-        <button data-action="menu#toggle" class="flex lg:hidden flex-col justify-center items-center w-14 h-14 bg-gray-800 border-2 border-gray-600 rounded-lg hover:border-gray-400">
-          <div data-menu-target="element">
+        <button
+          data-action="menu#toggle"
+          class="flex lg:hidden flex-col justify-center items-center w-14 h-14 bg-gray-800 border-2 border-gray-600 rounded-lg hover:border-gray-400 relative"
+        >
+          <div data-menu-target="element" class="absolute inset-0 flex flex-col items-center justify-center">
             <div class="w-8 h-1 bg-white mb-1"></div>
             <div class="w-8 h-1 bg-white mb-1"></div>
             <div class="w-8 h-1 bg-white"></div>
           </div>
           <!-- close icon -->
-          <div data-menu-target="element" class="hidden justify-center items-center justify-items-center">
-            <div class="w-8 h-1 bg-white rotate-45 absolute"></div>
-            <div class="w-8 h-1 bg-white -rotate-45 absolute"></div>
+          <div data-menu-target="element" class="opacity-0 pointer-events-none absolute inset-0">
+            <div class="w-8 h-1 bg-white rotate-45 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="w-8 h-1 bg-white -rotate-45 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
           </div>
         </button>
         <!-- mobile menu -->
