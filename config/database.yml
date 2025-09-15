@@ -81,18 +81,16 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: portfolio_production
-    username: portfolio
-    password: <%= ENV["PORTFOLIO_DATABASE_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *default
-    database: portfolio_production
+    url: <%= ENV["DATABASE_URL"] %>
     # migrations_paths: db/cache_migrate
   queue:
     <<: *default
-    database: portfolio_production
+    url: <%= ENV["DATABASE_URL"] %>
     # migrations_paths: db/queue_migrate
   cable:
     <<: *default
-    database: portfolio_production
+    url: <%= ENV["DATABASE_URL"] %>
     # migrations_paths: db/cable_migrate
