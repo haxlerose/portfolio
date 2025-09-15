@@ -34,7 +34,11 @@
   About Me
 </div>
 
-<div class="relative z-[5] w-full pt-20 pb-20 lg:pb-40 px-2 lg:grid lg:grid-cols-[1fr_minmax(min-content,_45%)] items-start gap-8 font-extralight" data-controller="stagger" data-stagger-interval-value="500">
+<div
+  class="relative z-[5] w-full pt-20 pb-20 lg:pb-40 px-2 lg:grid lg:grid-cols-[1fr_minmax(min-content,_45%)] items-start gap-8 font-extralight"
+  data-controller="stagger"
+  data-stagger-interval-value="400"
+>
   <div class="text-2xl gap-2 flex flex-col justify-center items-center px-10 text-center mb-10 lg:mb-0">
     <div data-stagger-target="item" class="text-4xl text-teal-400 font-light mb-5 lg:mb-10 opacity-0 translate-y-2">Professional</div>
     <p data-stagger-target="item" class="opacity-0 translate-y-2">
@@ -103,11 +107,15 @@
 </div>
 
 <div class="relative z-[5] w-full pb-20 lg:pb-40 px-2 items-start font-extralight">
-  <div class="lg:grid lg:grid-cols-2 gap-4 mb-20 lg:mb-40">
-    <%= link_to 'https://PeopleNeed.Love', class: 'flex justify-center items-start mb-10 lg:mb-0', target: '_blank' do %>
+  <div
+    class="lg:grid lg:grid-cols-2 gap-4 mb-20 lg:mb-40"
+    data-controller="stagger"
+    data-stagger-interval-value="400"
+  >
+    <%= link_to 'https://PeopleNeed.Love', data: { stagger_target: 'item' }, class: 'opacity-0 translate-y-2 flex justify-center items-start mb-10 lg:mb-0', target: '_blank' do %>
       <%= image_tag "people_need_love.jpeg", alt: "Paul Chesterton", class: "w-4/5 rounded-lg shadow-lg border-4 border-teal-400 hover:border-teal-600" %>
     <% end %>
-    <div class="flex justify-center">
+    <div class="flex justify-center opacity-0 translate-y-2" data-stagger-target="item">
       <div class="text-2xl gap-2 flex flex-col justify-start items-start font-extralight">
         <%= link_to 'People Need Love', 'https://PeopleNeed.Love', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-5 lg:mb-10' %>
         <p>
@@ -120,11 +128,15 @@
     </div>
   </div>
 
-  <div class="lg:grid lg:grid-cols-2 gap-4">
-    <%= link_to 'https://animath.myserver.pchesterton.com/', class: 'flex justify-center items-start mb-10 lg:mb-0', target: '_blank' do %>
+  <div
+    class="lg:grid lg:grid-cols-2 gap-4"
+    data-controller="stagger"
+    data-stagger-interval-value="400"
+    >
+    <%= link_to 'https://animath.myserver.pchesterton.com/', data: { stagger_target: 'item' }, class: 'opacity-0 translate-y-2 flex justify-center items-start mb-10 lg:mb-0', target: '_blank' do %>
       <%= image_tag "animath.jpeg", alt: "Animath", class: "w-4/5 rounded-lg shadow-lg border-4 border-teal-400 hover:border-teal-600" %>
     <% end %>
-    <div class="flex justify-center">
+    <div class="flex justify-center opacity-0 translate-y-2" data-stagger-target="item">
       <div class="text-2xl gap-2 flex flex-col justify-start items-start font-extralight">
         <%= link_to 'AniMath', 'https://animath.myserver.pchesterton.com/', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-5 lg:mb-10' %>
         <p>
