@@ -1,24 +1,25 @@
-# README
+# Portfolio App — Technology Showcase
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is a modern Ruby on Rails 8 portfolio site focused on speed, simplicity, and a no‑Node frontend. Below is a concise overview of the tools and choices that shape it.
 
-Things you may want to cover:
+## Highlights
 
-* Ruby version
+- Ruby `3.4.5` and Rails `8.0.2.1`
+- Hotwire (Turbo + Stimulus) with `importmap` — no bundler/Node
+- Tailwind CSS v4 via `tailwindcss-rails` and `tailwindcss-ruby`
+- PostgreSQL, Puma, and Propshaft asset pipeline
+- Containerized and deployed with Docker and Dokku
 
-* System dependencies
+## Backend
 
-* Configuration
+- Framework: Rails `8.0.2.1` (Ruby `3.4.5`).
+- Web server: `puma` with optional `thruster` acceleration.
+- Database: PostgreSQL (`pg`).
+- Asset pipeline: `propshaft` (modern Rails asset pipeline).
 
-* Database creation
+## Frontend
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Hotwire: `turbo-rails` for fast navigation, `stimulus-rails` for small JS behaviors.
+- JavaScript delivery: `importmap-rails` (ESM from the browser; no bundler).
+- Tailwind CSS v4: `tailwindcss-rails` + `tailwindcss-ruby` for Node‑free styling.
+- Stimulus controllers: `app/javascript/controllers/*` for navigation and UI effects.
