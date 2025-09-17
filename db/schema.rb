@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_17_152145) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_17_155150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "ip_addresses", force: :cascade do |t|
+    t.inet "ip_address", null: false
+    t.string "country_code"
+    t.string "region"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,15 +32,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_17_152145) do
   end
 
   create_table "visitors", force: :cascade do |t|
-    t.inet "ip_address", null: false
-    t.string "country_code"
-    t.string "region"
-    t.string "city"
+    t.bigint "ip_address_id"
     t.text "user_agent"
     t.string "browser_type"
     t.string "os_name"
     t.string "device_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ip_address_id"], name: "index_visitors_on_ip_address_id"
   end
 end
