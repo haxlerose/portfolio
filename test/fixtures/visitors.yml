@@ -4,8 +4,16 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  ip_address: one
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+  browser_type: "Chrome"
+  os_name: "macOS"
+  device_type: "desktop"
+
+two:
+  ip_address: two
+  user_agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+  browser_type: "Mobile Safari"
+  os_name: "iOS"
+  device_type: "smartphone"
