@@ -1,0 +1,69 @@
+<div class="relative z-[5] w-full pt-6 pb-12 font-extralight">
+  <div class="flex items-baseline justify-between mb-6">
+    <h1 class="text-3xl font-light text-teal-400">Visitors</h1>
+    <div class="text-sm text-gray-400">
+      Showing <%= @visitors.size %> most recent
+    </div>
+  </div>
+
+  <% if @visitors.empty? %>
+    <div class="bg-gray-800 border border-gray-700 rounded-xl p-8 text-center text-gray-300">
+      No visitors yet.
+    </div>
+  <% else %>
+  <div class="bg-gray-800 border border-gray-700 rounded-xl overflow-x-auto">
+    <div class="hidden md:grid grid-cols-[1.2fr_1fr_1.6fr_1fr_1fr_0.8fr] gap-3 text-gray-300 text-xs uppercase tracking-wider bg-gray-800 px-4 py-3">
+      <div>Seen</div>
+      <div>IP</div>
+      <div>Location</div>
+      <div>Browser</div>
+      <div>OS</div>
+      <div>Device</div>
+    </div>
+    <div class="divide-y divide-gray-700">
+      <% @visitors.each do |visitor| %>
+        <% ip = visitor.ip_address %>
+        <div class="px-4 py-4 text-sm">
+          <!-- Desktop layout -->
+          <div class="hidden md:grid grid-cols-[1.2fr_1fr_1.6fr_1fr_1fr_0.8fr] gap-3 items-center">
+            <div class="text-gray-200" title="<%= visitor.created_at.iso8601 %>">
+              <%= time_ago_in_words(visitor.created_at) %> ago
+            </div>
+            <div class="font-mono text-teal-400"><%= ip&.ip_address || '-' %></div>
+            <div class="text-gray-300">
+              <% if ip.present? %>
+                <%= [ip.city, ip.region, ip.country_code].compact_blank.join(', ') %>
+              <% else %>
+                -
+              <% end %>
+            </div>
+            <div class="text-gray-200"><%= visitor.browser_type.presence || '-' %></div>
+            <div class="text-gray-200"><%= visitor.os_name.presence || '-' %></div>
+            <div class="text-gray-200"><%= visitor.device_type.presence || '-' %></div>
+          </div>
+
+          <!-- Mobile layout -->
+          <div class="md:hidden flex flex-col gap-1">
+            <div class="flex justify-between items-center">
+              <div class="text-gray-400 text-xs"><%= time_ago_in_words(visitor.created_at) %> ago</div>
+              <div class="font-mono text-teal-400 text-xs"><%= ip&.ip_address || '-' %></div>
+            </div>
+            <div class="text-gray-300">
+              <% if ip.present? %>
+                <%= [ip.city, ip.region, ip.country_code].compact_blank.join(', ') %>
+              <% else %>
+                -
+              <% end %>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+              <span class="px-2 py-1 border border-gray-700 bg-gray-900 rounded"><%= visitor.browser_type.presence || '—' %></span>
+              <span class="px-2 py-1 border border-gray-700 bg-gray-900 rounded"><%= visitor.os_name.presence || '—' %></span>
+              <span class="px-2 py-1 border border-gray-700 bg-gray-900 rounded"><%= visitor.device_type.presence || '—' %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
