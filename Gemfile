@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "bootsnap", require: false
+gem "devise", "~> 4.9.4"
 gem "importmap-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"
