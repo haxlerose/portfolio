@@ -1,7 +1,9 @@
 source "https://rubygems.org"
 
 gem "bootsnap", require: false
+gem "device_detector"
 gem "devise", "~> 4.9.4"
+gem "geocoder"
 gem "importmap-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"
