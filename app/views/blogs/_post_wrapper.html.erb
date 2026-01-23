@@ -1,0 +1,19 @@
+<% content_for :head do %>
+  <title><%= title %> - Paul Chesterton</title>
+<% end %>
+
+<div class="relative z-[5] w-full pt-10 pb-20 px-2 font-extralight">
+  <!-- Back link -->
+  <%= link_to "← Back to Blogs", blogs_path, class: "text-teal-400 hover:text-teal-600 text-lg mb-8 inline-block" %>
+
+  <!-- Title -->
+  <h1 class="text-5xl lg:text-7xl font-extralight mb-4"><%= title %></h1>
+
+  <!-- Date -->
+  <p class="text-gray-400 text-lg mb-12"><%= date %></p>
+
+  <!-- Content -->
+  <div class="text-xl leading-relaxed space-y-6">
+    <%= yield %>
+  </div>
+</div>

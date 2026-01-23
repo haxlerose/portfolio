@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   get "admin" => "admin#index", as: :admin
+
+  get "blogs", to: "blogs#index"
+  get "blogs/:slug", to: "blogs#show", as: :blog_post
 end
