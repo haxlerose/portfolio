@@ -1,6 +1,14 @@
 <%= render "blogs/post_wrapper", title: "Ralph Loops Everywhere", date: "January 23, 2026" do %>
   <p class="text-lg text-gray-300 mb-6">
-    Someone recently asked for tips on using <%= link_to "ralph loops", "https://ghuntley.com/ralph/", class: "text-teal-400 hover:underline" %> for more than just iterating through an implementation plan. For those unfamiliar, ralph loops involve having Claude Code run the same prompt repeatedly with a checklist of tasks, completing and checking off one task at a time. The advantage is that each task starts with a fresh context window containing only what's needed for that specific task. This is where models do their best work. For a deeper dive into why, check out <%= link_to "Dexter Horthy's ideas", "https://www.youtube.com/watch?v=rmvDxxNubIg", class: "text-teal-400 hover:underline" %>. I figured I'd share some ways I've been using them, in hopes it helps others adopt this method. Fair warning: it will probably be a long read.
+    Someone recently asked for tips on using <%= link_to "ralph loops", "https://ghuntley.com/ralph/", class: "text-teal-400 hover:underline" %> for more than just iterating through an implementation plan. For those unfamiliar, ralph loops involve having Claude Code run the same prompt repeatedly with a checklist of tasks, completing and checking off one task at a time.
+  </p>
+
+  <p class="text-lg text-gray-300 mb-6">
+    The advantage is that each task starts with a fresh context window. Think of a context window like Claude's short-term memory. The more stuff in there, the more distracted it can get. Starting fresh means Claude only has what's needed for that specific task, which is where it does its best work. For a deeper dive into why, check out <%= link_to "Dexter Horthy's ideas", "https://www.youtube.com/watch?v=rmvDxxNubIg", class: "text-teal-400 hover:underline" %>.
+  </p>
+
+  <p class="text-lg text-gray-300 mb-6">
+    I figured I'd share some ways I've been using ralph loops, in hopes it helps others adopt this method. Fair warning: it will probably be a long read.
   </p>
 
   <p class="text-lg text-gray-300 mb-6">
@@ -8,31 +16,38 @@
   </p>
 
   <p class="text-lg text-gray-300 mb-6">
+    If you don't already have a set of rules or specs like I did, you should have a thorough conversation with Claude first and work through all of the specs beforehand. This is really important. Claude Code needs all the behavior you want from your app spelled out clearly so it doesn't have to guess and make the wrong call. The more detailed your specs are, the better the output will be and the less likely Claude is to make stuff up or go in a direction you didn't want.
+  </p>
+
+  <p class="text-lg text-gray-300 mb-6">
+    One way to make sure your specs are complete is to use a ralph loop for that too. You could have Claude look at your specs, find any unanswered questions or gaps, and add them to a <code class="text-teal-400">QUESTIONS.md</code> file. Then you answer those questions, and the loop keeps going until Claude can't think of anything else that's missing. It's a good way to make sure you've thought through all the edge cases before you start building.
+  </p>
+
+  <p class="text-lg text-gray-300 mb-6">
     I started with a regular Claude Code chat and gave it the instructions PDF. Then I talked through my idea of adapting the game for web. Some things wouldn't work well in a digital version, and the board game was really more of a multiplayer experience while I only wanted to build a single-player game. I had Claude create a <code class="text-teal-400">SPECS.md</code> file and update it as we discussed how the game would work, adding as much detail as I thought necessary. To finish up the specs, I started my first ralph loop using something along the lines of this prompt:
   </p>
 
   <ol class="list-decimal list-inside text-gray-300 mb-6 space-y-4 bg-gray-800 p-4 rounded-lg">
-    <li>Study the spec files in @specs/ about this game that is being designed.</li>
-    <li>Look for missing information in the functionality, mechanics, game flow, or anything else that should be addressed or clarified.</li>
+    <li>Study the spec files in @specs/ about this game that is being designed</li>
+    <li>Look for missing information in the functionality, mechanics, game flow, or anything else that should be addressed or clarified</li>
     <li>Study this document about the inspiration for this new game: @specs/game.pdf</li>
-    <li>Make your recommendations for changes based on how the original game works, using your own expertise to determine the best path forward.</li>
-    <li>Use your expert recommendations and then make the changes to the spec files.</li>
+    <li>Update the spec files based on the original game and your own expertise</li>
   </ol>
 
   <p class="text-lg text-gray-300 mb-6">
-    I monitored the output occasionally. To get the output from Claude, you can pass in these arguments in your script:
+    I monitored the output occasionally to see what Claude was doing. To get readable output from Claude when running it in a script, you can pass in these arguments:
   </p>
 
   <pre class="bg-gray-800 p-4 rounded-lg overflow-x-auto mb-6"><code class="text-teal-400">cat PROMPT.md | claude -p --dangerously-skip-permissions --output-format=stream-json --verbose</code></pre>
 
   <p class="text-lg text-gray-300 mb-6">
-    Then I pipe the output to jq to parse the JSON like this:
+    Claude outputs its response as JSON (a structured data format), so I use a tool called <code class="text-teal-400">jq</code> to pull out just the text I care about. This next line looks scary, but all it does is filter out the noise and show you what Claude is actually saying:
   </p>
 
   <pre class="bg-gray-800 p-4 rounded-lg overflow-x-auto mb-6"><code class="text-teal-400">| jq --unbuffered -r 'select(.type == "assistant") | .message.content[]? | select(.type == "text") | (.text // empty)'</code></pre>
 
   <p class="text-lg text-gray-300 mb-6">
-    If you get stuck, just give Claude this info and it can write the script for you. I'm working on a Mac with jq in the terminal, so it may be different on Windows or Linux. Once the output from the loop started to say there were no more changes needed, I stopped it. With my spec files complete, I moved on to the planning phase.
+    Don't worry if that looks like gibberish. If you get stuck, just give Claude this info and it can write the whole script for you. I'm working on a Mac, so it may be a bit different on Windows or Linux. Once the output from the loop started to say there were no more changes needed, I stopped it. With my spec files complete, I moved on to the planning phase.
   </p>
 
   <p class="text-lg text-gray-300 mb-6">
@@ -40,12 +55,12 @@
   </p>
 
   <ol class="list-decimal list-inside text-gray-300 mb-6 space-y-4 bg-gray-800 p-4 rounded-lg">
-    <li>Study the spec files in @specs/ to understand the full scope of the project.</li>
-    <li>Identify all features, mechanics, and requirements that need to be implemented.</li>
-    <li>Create or update @PLAN.md with a detailed multi-phase implementation plan.</li>
-    <li>Break each phase into specific, actionable steps.</li>
-    <li>Make sure every requirement from the specs is accounted for in the plan.</li>
-    <li>Review the plan for completeness and add any missing details.</li>
+    <li>Study the spec files in @specs/ to understand the full scope of the project</li>
+    <li>Identify all features, mechanics, and requirements that need to be implemented</li>
+    <li>Create or update @PLAN.md with a detailed multi-phase implementation plan</li>
+    <li>Break each phase into specific, actionable steps</li>
+    <li>Make sure every requirement from the specs is accounted for in the plan</li>
+    <li>Review the plan for completeness and add any missing details</li>
   </ol>
 
   <p class="text-lg text-gray-300 mb-6">
@@ -61,9 +76,9 @@
     <li>0b. Familiarize yourself with code in app/</li>
     <li>0c. Familiarize yourself with code in frontend/</li>
     <li>0d. Familiarize yourself with the specifications in specs/</li>
-    <li>1. Read @PLAN.md and implement the single highest priority feature using up to 5 subagents.</li>
-    <li>2. Ensure all tests and linting pass, then update @PLAN.md with your progress.</li>
-    <li>3. Use `git add -A` and `git commit -m "..."` to commit your changes.</li>
+    <li>1. Read @PLAN.md and implement the single highest priority feature using up to 5 subagents</li>
+    <li>2. After all tests and linting pass, update @PLAN.md with your progress</li>
+    <li>3. Use `git add -A` and `git commit -m "..."` to commit your changes</li>
   </ol>
 
   <p class="text-lg text-gray-300 mb-6">
@@ -74,7 +89,7 @@
     <li>1. Familiarize yourself with the specifications in specs/</li>
     <li>2. Read @GAME_STATES.md</li>
     <li>3. Update @GAME_STATES.md with one additional new game state that should be tested</li>
-    <li>4. Use `git add -A` and `git commit -m "..."` to commit your changes.</li>
+    <li>4. Use `git add -A` and `git commit -m "..."` to commit your changes</li>
   </ol>
 
   <p class="text-lg text-gray-300 mb-6">
@@ -82,7 +97,7 @@
   </p>
 
   <p class="text-lg text-gray-300 mb-6">
-    This is where I had to start using Playwright MCP so Claude could actually test the game in a browser window and look for visual or behavioral bugs. I generally try to avoid using MCPs unless I really need them because I want the context to stay as focused as possible on the task at hand. But for this kind of testing, there was no way around it that I could think of. Similar to the test files, <code class="text-teal-400">BUGS.md</code> also grew large enough that I had Claude create individual bug files. Here's something like the testing prompt I came up with:
+    This is where I had to start using Playwright MCP so Claude could actually test the game in a browser window and look for visual or behavioral bugs. MCP stands for Model Context Protocol, and it's basically a way to give Claude extra abilities it doesn't have by default. In this case, Playwright MCP lets Claude control a web browser, click around, and see what's on screen. I generally try to avoid using MCPs unless I really need them because I want the context to stay as focused as possible on the task at hand. But for this kind of testing, there was no way around it that I could think of. Similar to the test files, <code class="text-teal-400">BUGS.md</code> also grew large enough that I had Claude create individual bug files. Here's something like the testing prompt I came up with:
   </p>
 
   <ol class="list-inside text-gray-300 mb-6 space-y-4 bg-gray-800 p-4 rounded-lg">
@@ -90,10 +105,10 @@
     <li>0b. Read @GAME_STATES.md</li>
     <li>1. Recreate one incomplete game state test from the list</li>
     <li>2. Use Playwright MCP to verify it works correctly</li>
-    <li>3. Update @BUGS.md with any bugs found, including all context needed to recreate them</li>
+    <li>3. Update @BUGS.md with any bugs found including all context needed to recreate them</li>
     <li>4. Create a corresponding bug file in @bugs/ for each bug without fixing them</li>
     <li>5. Update @GAME_STATES.md and the individual test file in @game_states/ with your progress</li>
-    <li>6. Fix any incorrect info in @GAME_STATES.md you encountered, but don't actively look for mistakes</li>
+    <li>6. Fix any incorrect info in @GAME_STATES.md you encountered but don't actively look for mistakes</li>
     <li>7. Use `git add -A` and `git commit -m "..."` to commit your changes</li>
   </ol>
 
@@ -107,11 +122,10 @@
     <li>1. Select a single bug based on priority</li>
     <li>2. Verify it's a bug using Playwright MCP</li>
     <li>3. Research and fix the bug using up to 5 subagents</li>
-    <li>4. Verify the fix using Playwright MCP, repeating until resolved</li>
+    <li>4. Verify the fix using Playwright MCP repeating until resolved</li>
     <li>5. Add any new bugs found to @BUGS.md and @bugs/</li>
-    <li>6. Ensure all tests and linting pass</li>
-    <li>7. Update @BUGS.md and @bugs/ with your progress</li>
-    <li>8. Use `git add -A` and `git commit -m "..."` to commit your changes</li>
+    <li>6. After all tests and linting pass, update @BUGS.md and @bugs/ with your progress</li>
+    <li>7. Use `git add -A` and `git commit -m "..."` to commit your changes</li>
   </ol>
 
   <p class="text-lg text-gray-300 mb-6">
@@ -119,7 +133,7 @@
   </p>
 
   <p class="text-lg text-gray-300 mb-6">
-    Up until this point, the main times I had to open a regular Claude Code conversation were during the initial spec creation and to fix a Tailwind loading bug that was causing the frontend styling to break. For some reason the ralph loops never caught that one. After the loops finished, I did find 2 or 3 more bugs while testing that I had Claude Code fix using a typical research, plan, implement, verify pattern with a <code class="text-teal-400">/clear</code> between each phase to keep the context fresh.
+    Up until this point, the main times I had to open a regular Claude Code conversation were during the initial spec creation and to fix a Tailwind loading bug that was causing the frontend styling to break. For some reason the ralph loops never caught that one. After the loops finished, I did find 2 or 3 more bugs while testing that I had Claude Code fix using a typical research, plan, implement, verify pattern with a <code class="text-teal-400">/clear</code> between each phase to keep the context fresh. (The <code class="text-teal-400">/clear</code> command wipes Claude's memory of the current conversation, giving you a fresh start.)
   </p>
 
   <h2 class="text-3xl font-light text-white mt-12 mb-6">Stopping the Loop Automatically</h2>
@@ -133,7 +147,7 @@
   </p>
 
   <p class="text-lg text-gray-300 mb-6">
-    To make this work, save Claude's output to a temp file by adding <code class="text-teal-400">| tee "$output_file"</code> to your pipeline. Then after each iteration, check for the completion signal:
+    To make this work, save Claude's output to a temp file by adding <code class="text-teal-400">| tee "$output_file"</code> to the end of your command. Then after each iteration, check for the completion signal:
   </p>
 
   <pre class="bg-gray-800 p-4 rounded-lg overflow-x-auto mb-6"><code class="text-teal-400">if grep -q "&lt;promise&gt;COMPLETE&lt;/promise&gt;" "$output_file"; then
@@ -142,10 +156,14 @@
 fi</code></pre>
 
   <p class="text-lg text-gray-300 mb-6">
-    When <code class="text-teal-400">grep</code> finds the completion signal, the script exits cleanly. Otherwise it continues to the next iteration.
+    The <code class="text-teal-400">grep</code> command searches for text in a file. When it finds the completion signal, the script exits cleanly. Otherwise it continues to the next iteration.
   </p>
 
   <p class="text-lg text-gray-300 mb-6">
-    Hopefully this helps you understand ralph loops a little better. I'm still learning all of this myself, and there are a lot of opinions out there about how to make these tools work best. This is just what's been working for me.
+    Hopefully this helps you understand ralph loops a little better. The main takeaway is that you can use them for way more than just running through a plan. I used them for refining specs, creating plans, implementing features, brainstorming test scenarios, running tests, and fixing bugs. Basically any task where you want Claude to chip away at something one piece at a time with a fresh mind each round.
+  </p>
+
+  <p class="text-lg text-gray-300 mb-6">
+    I'm still learning all of this myself, and there are a lot of opinions out there about how to make these tools work best. This is just what's been working for me.
   </p>
 <% end %>
