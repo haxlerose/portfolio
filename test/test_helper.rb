@@ -27,16 +27,16 @@ if defined?(Geocoder)
   # Specific stubs used in fixtures/tests
   Geocoder::Lookup::Test.add_stub(
     "127.0.0.1",
-    [ { 'city' => 'San Francisco', 'region' => 'CA', 'country' => 'US' } ]
+    [ { "city" => "San Francisco", "region" => "CA", "country" => "US" } ]
   )
 
   Geocoder::Lookup::Test.add_stub(
     "192.0.2.1",
-    [ { 'city' => 'London', 'region' => 'England', 'country' => 'GB' } ]
+    [ { "city" => "London", "region" => "England", "country" => "GB" } ]
   )
 
   # Fallback for any other IPs encountered during tests
   Geocoder::Lookup::Test.set_default_stub(
-    [ { 'city' => nil, 'region' => nil, 'country' => nil } ]
+    [ { "city" => nil, "region" => nil, "country" => nil } ]
   )
 end
