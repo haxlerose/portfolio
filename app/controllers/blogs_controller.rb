@@ -3,10 +3,10 @@ class BlogsController < ApplicationController
   end
 
   def show
-    slug = params[:slug]
-    # Only allow lowercase alphanumeric and hyphens (prevents directory traversal)
-    if slug =~ /\A[a-z0-9\-]+\z/ && template_exists?("blogs/posts/#{slug}")
-      render "blogs/posts/#{slug}"
+    blog_post = BlogPost.find(params[:slug])
+
+    if blog_post
+      render "blogs/posts/#{blog_post.slug}"
     else
       raise ActionController::RoutingError, "Not Found"
     end

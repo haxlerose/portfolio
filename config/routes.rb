@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  get "sitemap.xml", to: "sitemaps#show", defaults: { format: :xml }
+  get "robots.txt", to: "robots#show", defaults: { format: :text }
+
   get "admin" => "admin#index", as: :admin
 
   get "blogs", to: "blogs#index"
