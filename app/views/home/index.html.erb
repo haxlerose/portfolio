@@ -47,6 +47,8 @@
       I am proficient in building RESTful APIs, integrating third-party services,
       and optimizing application performance. I am also experienced in using version
       control systems like Git and collaborating on projects using Agile methodologies.
+      I am proficient with AI coding agents, including Claude Code, Codex, and OpenCode,
+      to speed up implementation while maintaining code quality.
     </p>
   </div>
   <div class="text-2xl gap-2 flex flex-col justify-center items-center px-10 text-center">
@@ -99,6 +101,8 @@
     <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Jira</div>
     <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Slack</div>
     <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">GitHub</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">Claude Code</div>
+    <div data-stagger-target="item" class="px-4 py-2 border border-gray-700 bg-gray-800 rounded-lg text-teal-400 text-2xl opacity-0 translate-y-2">OpenAI Codex</div>
   </div>
 </div>
 
@@ -119,17 +123,15 @@
       <div class="text-2xl gap-2 flex flex-col justify-start items-start font-extralight">
         <%= link_to 'People Need Love', 'https://PeopleNeed.Love', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-5 lg:mb-10' %>
         <p>
-          Web app to anonymously send and receive encouragement from others. Built with
-          Ruby on Rails full-stack using Hotwire (Turbo + Stimulus.js).
-          Features include pin number for users to locate their requests later
-          and a full admin area behind authentication to manage the data.
+          Ruby on Rails app for anonymously sending and receiving encouragement.
+          Built with Hotwire, request lookup by PIN, and an authenticated admin area.
         </p>
       </div>
     </div>
   </div>
 
   <div
-    class="lg:grid lg:grid-cols-2 gap-4"
+    class="lg:grid lg:grid-cols-2 gap-4 mb-20 lg:mb-32"
     data-controller="stagger"
     data-stagger-interval-value="400"
     >
@@ -140,13 +142,49 @@
       <div class="text-2xl gap-2 flex flex-col justify-start items-start font-extralight">
         <%= link_to 'AniMath', 'https://animath.chesterton.tech/', target: '_blank', class: 'text-4xl text-teal-400 hover:text-teal-600 mb-5 lg:mb-10' %>
         <p>
-          Web app for kids to solve simple math problems and collect animal cards.
-          Built with Ruby on Rails full-stack using Hotwire (Turbo + Stimulus.js).
-          Features include hundreds of animal cards with beautiful artwork to collect,
-          increasing difficulty as the player progresses, and interesting animations.
+          Ruby on Rails learning game where kids solve math problems and collect
+          animal cards, with progressive difficulty and animated interactions.
         </p>
       </div>
     </div>
+  </div>
+
+  <div
+    class="grid gap-6 lg:grid-cols-2"
+    data-controller="stagger"
+    data-stagger-interval-value="200"
+  >
+    <%= link_to 'https://flowerpricer.com', data: { stagger_target: 'item' }, class: 'opacity-0 translate-y-2 block rounded-lg border border-gray-700 bg-gray-800 p-6 hover:border-teal-400' do %>
+      <div class="text-2xl text-teal-400 mb-4">Flower Pricer</div>
+      <p class="text-xl text-white">
+        Rails app that compares bouquets from national flower delivery sites,
+        with AI-assisted categorization for better search and filtering.
+      </p>
+    <% end %>
+
+    <%= link_to 'https://coloring.spot', data: { stagger_target: 'item' }, class: 'opacity-0 translate-y-2 block rounded-lg border border-gray-700 bg-gray-800 p-6 hover:border-teal-400' do %>
+      <div class="text-2xl text-teal-400 mb-4">Coloring Spot</div>
+      <p class="text-xl text-white">
+        Rails app for searching and downloading hundreds of coloring pages,
+        with AI-generated metadata and automated Pinterest RSS feeds.
+      </p>
+    <% end %>
+
+    <%= link_to 'https://baseball.chesterton.tech', data: { stagger_target: 'item' }, class: 'opacity-0 translate-y-2 block rounded-lg border border-gray-700 bg-gray-800 p-6 hover:border-teal-400' do %>
+      <div class="text-2xl text-teal-400 mb-4">Baseball Sim</div>
+      <p class="text-xl text-white">
+        Pitch-by-pitch baseball simulator using historical stats to model games,
+        series, seasons, drafts, and custom team matchups.
+      </p>
+    <% end %>
+
+    <%= link_to 'https://crissiecarter.com', data: { stagger_target: 'item' }, class: 'opacity-0 translate-y-2 block rounded-lg border border-gray-700 bg-gray-800 p-6 hover:border-teal-400' do %>
+      <div class="text-2xl text-teal-400 mb-4">Crissie Carter</div>
+      <p class="text-xl text-white">
+        Professional counseling website with a clean static-page design,
+        Tailwind CSS styling, and lightweight JavaScript behavior.
+      </p>
+    <% end %>
   </div>
 </div>
 
