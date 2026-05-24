@@ -13,7 +13,7 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 gem "stimulus-rails"
-gem "tailwindcss-rails", "~> 4.3"
+gem "tailwindcss-rails", "~> 4.4"
 gem "tailwindcss-ruby", "~> 4.1"
 gem "thruster", require: false
 gem "turbo-rails"
